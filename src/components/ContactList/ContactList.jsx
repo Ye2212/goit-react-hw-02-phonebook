@@ -1,6 +1,6 @@
 import Contact from "components/Contact/Contact";
 
-function ContactList({ contacts }) {
+function ContactList({ contacts, onDeleteContact }) {
     return (
         <ul>{contacts.map(({ id, name, number }) => {
             return (
@@ -8,6 +8,8 @@ function ContactList({ contacts }) {
                     <Contact
                         name={name}
                         number={number}
+                        onDeleteContact={onDeleteContact}
+                        contactId={id}
                     />
                 </li>
             );

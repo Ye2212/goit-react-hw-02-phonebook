@@ -25,19 +25,31 @@ class App extends Component {
     this.setState(({ contacts }) => ({
       contacts: [newContact, ...contacts],
     }))
-  }
+  };
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(
+        contact => contact.id !== contactId),
+    }));
+  };
 
   render() {
+    console.log(this.state.contacts.length);
+    const { length } = this.state.contacts;
     return (
       <div>
         <h1>Phonebook</h1>
         <ContactForm onSubmitProp={this.addContact} />
 
         <h2>Contact List</h2>
-        <ContactList
-          contacts={this.state.contacts} />
         <Filter />
-        <Message message="Contact list is empty." />
+        {length > 0 ? (
+          <ContactList
+            contacts={this.state.contacts}
+            onDeleteContact={this.deleteContact}
+          />
+        ) : (<Message message="Contact list is empty." />)
+        }
       </div >
     );
   }
