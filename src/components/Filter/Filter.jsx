@@ -1,19 +1,23 @@
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
+import { FilterLabel, FilterText, FilterInput } from './Filter.styled';
 
-function Filter () {
-    return (
-        <label>
-          <p>Find contacts by name</p>
-          <input
-            type="text"
-          />
-        </label>
-      );
+function Filter({ filter, changeFilter }) {
+  return (
+    <FilterLabel>
+      <FilterText>Find contacts by name</FilterText>
+      <FilterInput
+        type="text"
+        value={filter}
+        onChange={changeFilter}
+      />
+    </FilterLabel>
+  );
 
 }
 
-// Filter.propTypes = {
-
-// }
+Filter.propTypes = {
+  filter: propTypes.string,
+  changeFilter: propTypes.func.isRequired,
+}
 
 export default Filter;

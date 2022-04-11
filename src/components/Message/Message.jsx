@@ -1,11 +1,13 @@
 import propTypes from 'prop-types';
-function Message ({ message }){
+import { Text } from './Message.styled';
+
+function Message({ message }) {
     return (
-        <p>{ message }</p>
+        <Text>{message}</Text>
     )
 }
 
 Message.propTypes = {
-message: propTypes.string.isRequired,
+    message: propTypes.string.isRequired,
 }
 export default Message;
