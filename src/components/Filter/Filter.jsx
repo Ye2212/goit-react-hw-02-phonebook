@@ -12,7 +12,7 @@ function Filter () {
 
 }
 
-// Filter.prototype = {
+// Filter.propTypes = {
 
 // }
 

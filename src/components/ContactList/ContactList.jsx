@@ -1,11 +1,17 @@
 import Contact from "components/Contact/Contact";
 
-function ContactList (){
+function ContactList({ contacts }) {
     return (
-        <ul>
-            <li><Contact /></li>
-            <li><Contact /></li>
-            <li><Contact /></li>
+        <ul>{contacts.map(({ id, name, number }) => {
+            return (
+                <li key={id}>
+                    <Contact
+                        name={name}
+                        number={number}
+                    />
+                </li>
+            );
+        })}
         </ul>
     )
 }

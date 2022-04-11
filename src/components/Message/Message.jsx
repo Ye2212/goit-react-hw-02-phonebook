@@ -1,11 +1,11 @@
-// import propTypes from 'prop-types';
-function Message (){
+import propTypes from 'prop-types';
+function Message ({ message }){
     return (
-        <p>Contact list is empty</p>
+        <p>{ message }</p>
     )
 }
 
-// Message.prototype = {
-
-// }
+Message.propTypes = {
+message: propTypes.string.isRequired,
+}
 export default Message;

@@ -1,9 +1,9 @@
-function Contact (){
-return (
-    <div>
-        <span>Name</span><span>Number</span>
-
-    </div>
-)
+function Contact({ name, number }) {
+    return (
+        <>
+            <p>{name}<span>{number}</span></p>
+            <button type="button">Delete</button>
+        </>
+    )
 }
 export default Contact;
