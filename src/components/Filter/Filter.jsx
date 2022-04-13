@@ -1,13 +1,14 @@
 import propTypes from 'prop-types';
 import { FilterLabel, FilterText, FilterInput } from './Filter.styled';
 
-function Filter({ filter, changeFilter }) {
+function Filter({ value, changeFilter }) {
   return (
     <FilterLabel>
       <FilterText>Find contacts by name</FilterText>
       <FilterInput
         type="text"
-        value={filter}
+        name="filter"
+        value={value}
         onChange={changeFilter}
       />
     </FilterLabel>

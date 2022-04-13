@@ -64,7 +64,8 @@ class App extends Component {
         <ContactForm onSubmitProp={this.addContact} />
 
         <h2>Contact List</h2>
-        <Filter value={filter}
+        <Filter
+          value={filter}
           changeFilter={this.changeFilter} />
         {
           length > 0 ? (
