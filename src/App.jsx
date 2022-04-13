@@ -13,7 +13,7 @@ class App extends Component {
   state = {
     contacts:
       contacts,
-    filter: ' ',
+    filter: '   ',
   }
 
   addContact = ({ name, number }) => {
