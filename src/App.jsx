@@ -1,39 +1,39 @@
 import { Component } from 'react';
-import SectionComponent from './Section/Section';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
-import Message from './Message/Message';
+import SectionComponent from './components/Section/Section';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import Filter from './components/Filter/Filter';
+import Message from './components/Message/Message';
+import contacts from './data/contacts.json';
 import { nanoid } from 'nanoid';
 
 
 class App extends Component {
 
   state = {
-    contacts: [{ id: 'id-2', name: 'Rosie Simpson', number: '459-12-56' },
-    { id: 'id-3', name: 'Hermione Kline', number: '443-89-12' },
-    { id: 'id-4', name: 'Eden Clements', number: '645-17-79' },
-    { id: 'id-5', name: 'Annie Copeland', number: '227-91-26' },],
-    filter: '',
+    contacts:
+      contacts,
+    filter: ' ',
   }
 
   addContact = ({ name, number }) => {
     // console.log("App: ", { name, number });
+    const { contacts } = this.state;
+    // console.log(contacts)
     const newContact = {
       id: nanoid(),
       name,
       number,
     };
-    this.setState(({ contacts }) => {
-      if (
-        contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())
-      ) {
-        return alert(`${name} is already in contacts`);
-      }
-      return {
+
+    contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())
+      ?
+      alert(`${name} is already in contacts`)
+      :
+      this.setState(({ contacts }) => ({
         contacts: [newContact, ...contacts],
-      }
-    })
+      }))
+
   };
 
   deleteContact = contactId => {
